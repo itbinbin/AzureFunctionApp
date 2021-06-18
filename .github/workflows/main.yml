@@ -4,14 +4,14 @@ on:
   [push]
 
 env:
-  AZURE_FUNCTIONAPP_NAME: testLinuxFun      # set this to your function app name on Azure
+  AZURE_FUNCTIONAPP_NAME: javaFunction02     # set this to your function app name on Azure
   POM_XML_DIRECTORY: '.'                     # set this to the directory which contains pom.xml file
-  POM_FUNCTIONAPP_NAME: JavaFunction3        # set this to the function app name in your local development environment
-  JAVA_VERSION: '1.8.0_191'                      # set this to the dotnet version to use
+  POM_FUNCTIONAPP_NAME: javaFunction3        # set this to the function app name in your local development environment
+  JAVA_VERSION: '1.8.x'                      # set this to the java version to use
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
       uses: actions/checkout@main
@@ -22,7 +22,7 @@ jobs:
         java-version: ${{ env.JAVA_VERSION }}
 
     - name: 'Restore Project Dependencies Using Mvn'
-      shell: bash
+      shell: pwsh
       run: |
         pushd './${{ env.POM_XML_DIRECTORY }}'
         mvn clean package
