@@ -1,5 +1,4 @@
 name: Deploy Java project to function app
-
 on:
   push:
     branches:
