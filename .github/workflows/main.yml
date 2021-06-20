@@ -3,6 +3,7 @@ on:
   push:
     branches:
     - master
+    
 env:
   AZURE_FUNCTIONAPP_NAME: javaFunction02     # set this to your function app name on Azure
   POM_XML_DIRECTORY: '.'                     # set this to the directory which contains pom.xml file
